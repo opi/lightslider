@@ -66,7 +66,7 @@
         if (settings.mode === 'fade') {
             settings.vertical = false;
         }
-        var $children = $el.children(),
+        var $children = $el.children().filter(':visible'),
             windowW = $(window).width(),
             breakpoint = null,
             resposiveObj = null,
@@ -275,7 +275,7 @@
                             for (var m = $el.find('.lslide').length - $el.find('.clone.left').length; m > ($el.find('.lslide').length - tItem); m--) {
                                 $el.find('.lslide').eq(m - 1).clone().removeClass('lslide').addClass('clone left').prependTo($el);
                             }
-                            $children = $el.children();
+                            $children = $el.children().filter(':visible');
                         } else {
                             if ($children.hasClass('clone')) {
                                 $el.find('.clone').remove();
@@ -303,7 +303,7 @@
                     }
                 };
                 refresh.calL = function () {
-                    $children = $el.children();
+                    $children = $el.children().filter(':visible');
                     length = $children.length;
                 };
                 if (this.doCss()) {
